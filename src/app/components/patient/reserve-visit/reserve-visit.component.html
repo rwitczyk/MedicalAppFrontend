@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div class="main-component-content">
+
+  <form [formGroup]="reserveVisit" class="text-center border border-light p-5">
+
+    <h2 style="text-align: center">Rezerwacja wizyty</h2>
+
+    <div class="md-form">
+      <select class="browser-default custom-select" formControlName="selectedDoctorId">
+        <option selected value="">Wybierz doktora</option>
+        <option value="{{doctor.id}}"
+                *ngFor="let doctor of doctorsList">{{doctor.firstName}} {{doctor.lastName}} {{doctor.specialization}}</option>
+      </select>
+    </div>
+
+    <div>
+      <div style="float: left; margin-right: 1rem">Wybierz dzień:</div>
+      <input style="display: block" type="date" formControlName="visitDate" (change)="getAvailableVisits()">
+    </div>
+
+    <div class="md-form">
+      <select class="browser-default custom-select" formControlName="visitId">
+        <option selected value="">Wybierz czas</option>
+        <option value="{{visit.id}}" *ngFor="let visit of availableVisitsList">{{visit.fromTime}} - {{visit.toTime}}</option>
+      </select>
+    </div>
+  </form>
+
+  <button mdbBtn color="info" block="true" class="my-4" type="submit" (click)="sendForm()">Zarezerwuj</button>
+
+</div>

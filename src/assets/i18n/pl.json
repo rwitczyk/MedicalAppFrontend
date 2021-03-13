@@ -1,0 +1,16 @@
+{
+  "home": "Strona główna",
+  "registration": "Rejestracja",
+  "registrationDoctor": "Rejestracja doktora",
+  "signIn": "Logowanie",
+  "logOut": "Wyloguj",
+
+  "register": "Zarejestruj się",
+  "logIn": "Zaloguj się",
+  "firstName": "Imię",
+  "lastName": "Nazwisko",
+  "password": "Hasło",
+  "phoneNumber": "Numer telefonu",
+
+  "pageNotFound": "Nie znaleziono strony :("
+}

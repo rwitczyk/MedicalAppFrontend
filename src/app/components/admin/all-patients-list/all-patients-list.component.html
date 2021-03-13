@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<div class="main-component-content">
+
+  <table mdbTable>
+    <thead>
+    <tr>
+      <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr mdbTableCol *ngFor="let patient of patientsList">
+      <th scope="row">{{patient.id}}</th>
+      <td>{{patient.firstName}}</td>
+      <td>{{patient.lastName}}</td>
+      <td>{{patient.userLoginDataEntity.email}}</td>
+      <td>{{patient.userLoginDataEntity.enabled}}</td>
+      <td>
+        <button *ngIf="patient.userLoginDataEntity.enabled == false" type="button" mdbBtn color="primary" mdbWavesEffect
+                (click)="enableAccount(patient.id)">Aktywuj
+        </button>
+        <button *ngIf="patient.userLoginDataEntity.enabled == true" type="button" mdbBtn color="danger" mdbWavesEffect
+                (click)="disableAccount(patient.id)">Dezaktywuj
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

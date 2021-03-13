@@ -1,0 +1,16 @@
+{
+  "home": "Home",
+  "registration": "Registration",
+  "registrationDoctor": "Doctor registration",
+  "signIn": "Sign in",
+  "logOut": "Logout",
+
+  "register": "Sign up",
+  "logIn": "Sign in",
+  "firstName": "First name",
+  "lastName": "Last name",
+  "password": "Password",
+  "phoneNumber": "Phone number",
+
+  "pageNotFound": "Page not found :("
+}

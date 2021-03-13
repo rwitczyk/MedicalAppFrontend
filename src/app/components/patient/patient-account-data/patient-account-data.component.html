@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+<div class="main-component-content">
+
+  <!-- Default form register -->
+  <form [formGroup]="accountData" class="text-center border border-light p-5">
+
+    <p class="h4 mb-4">Edycja danych osobowych</p>
+
+    <div class="md-form">
+      <input mdbInput mdbValidate type="text" id="firstName" class="form-control" formControlName="firstName" [(ngModel)]="patientModel.firstName">
+      <label for="firstName">{{'firstName' | translate}}</label>
+      <mdb-error *ngIf="f.firstName.errors && f.firstName.errors.required && (f.firstName.dirty || f.firstName.touched)">Pole wymagane</mdb-error>
+      <mdb-success *ngIf="f.firstName.valid && (f.firstName.dirty || f.firstName.touched)"></mdb-success>
+    </div>
+
+    <div class="md-form">
+      <input mdbInput mdbValidate type="text" id="lastName" class="form-control" formControlName="lastName" [(ngModel)]="patientModel.lastName">
+      <label for="lastName">{{'lastName' | translate}}</label>
+      <mdb-error *ngIf="f.lastName.errors && f.lastName.errors.required && (f.lastName.dirty || f.lastName.touched)">Pole wymagane</mdb-error>
+      <mdb-success *ngIf="f.lastName.valid && (f.lastName.dirty || f.lastName.touched)"></mdb-success>
+    </div>
+
+
+    <!-- E-mail -->
+    <div class="md-form">
+      <input mdbInput disabled type="text" id="email" class="form-control" formControlName="email" [(ngModel)]="patientModel.userLoginDataEntity.email">
+      <label for="email">Email</label>
+    </div>
+
+
+    <div class="md-form">
+      <input mdbInput mdbValidate type="password" id="password" class="form-control" formControlName="password">
+      <label for="password">Wpisz nowe hasło</label>
+      <mdb-error *ngIf="f.password.errors && f.password.errors.minlength && (f.password.dirty || f.password.touched)">Niewystarczająca ilość znaków</mdb-error>
+      <mdb-success *ngIf="f.password.valid && (f.password.dirty || f.password.touched)"></mdb-success>
+    </div>
+
+
+    <!-- Phone number -->
+    <div class="md-form">
+      <input mdbInput mdbValidate type="text" id="phoneNumber" class="form-control" formControlName="phoneNumber" [(ngModel)]="patientModel.phoneNumber">
+      <label for="phoneNumber">{{'phoneNumber' | translate}}</label>
+      <mdb-error *ngIf="f.phoneNumber.errors && f.phoneNumber.errors.required && (f.phoneNumber.dirty || f.phoneNumber.touched)">Pole wymagane</mdb-error>
+      <mdb-error *ngIf="f.phoneNumber.errors && f.phoneNumber.errors.pattern && (f.phoneNumber.dirty || f.phoneNumber.touched)">Niepoprawny format</mdb-error>
+      <mdb-success *ngIf="f.phoneNumber.valid && (f.phoneNumber.dirty || f.phoneNumber.touched)"></mdb-success>
+    </div>
+
+
+    <button mdbBtn color="info" block="true" class="my-4" type="submit" (click)="sendForm()">Edytuj</button>
+
+  </form>
+  <!-- Default form register -->
+</div>

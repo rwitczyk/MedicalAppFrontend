@@ -1,0 +1,17 @@
+{
+  "home": "DE_HOME",
+  "registration": "DE_Rejestracja",
+  "registrationDoctor": "DE_Rejestracja doktora",
+  "signIn": "DE_Logowanie",
+  "logOut": "DE_Wyloguj",
+
+  "register": "DE_Zarejestruj się",
+  "logIn": "DE_Zaloguj się",
+  "firstName": "DE_Imię",
+  "lastName": "DE_Nazwisko",
+  "password": "DE_Hasło",
+  "phoneNumber": "DE_Numer telefonu",
+
+
+  "pageNotFound": "NEIN :("
+}

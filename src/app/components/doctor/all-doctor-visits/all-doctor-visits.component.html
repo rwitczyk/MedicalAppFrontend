@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+<div class="main-component-content">
+
+  <table mdbTable>
+    <thead>
+    <tr>
+      <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr mdbTableCol *ngFor="let visit of allDoctorVisits">
+      <th scope="row">{{visit.date}}</th>
+      <td>{{visit.fromTime}}</td>
+      <td>{{visit.toTime}}</td>
+      <td>{{visit.status}}</td>
+      <td>{{visit.description}}</td>
+      <td>{{visit.price}}</td>
+      <td>
+        <button *ngIf="visit.status == 'TO_ACCEPT'" type="button" mdbBtn color="primary" mdbWavesEffect
+                (click)="cancelVisit(visit.id)">Anuluj
+        </button>
+      </td>
+      <td>
+        <button *ngIf="visit.status == 'TO_ACCEPT'" type="button" mdbBtn color="primary" mdbWavesEffect
+                (click)="basicModal.show(); saveSelectedVisit(visit.id)">Akceptuj
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Akceptacja wizyty</h4>
+      </div>
+      <div class="modal-body">
+        <div class="md-form">
+          <input mdbInput mdbValidate type="text" id="description" #description>
+          <label for="description">Opis</label>
+        </div>
+        <div class="md-form">
+          <input mdbInput mdbValidate type="text" id="price" #price>
+          <label for="price">Cena [PLN]</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Zamknij</button>
+        <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect (click)="acceptVisit(description.value, price.value)">Zatwierdz wizyte</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
+
+  <!-- Navbar brand -->
+  <mdb-navbar-brand><a class="navbar-brand" [routerLink]="['/home']">{{'home' | translate}}</a></mdb-navbar-brand>
+
+  <!-- Collapsible content -->
+  <links>
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" *ngIf="jwtToken == undefined">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/registerPatientAccount']">{{'registration' | translate}}</a>
+      </li>
+      <li class="nav-item" *ngIf="role === 'ROLE_ADMIN'">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/registerDoctorAccount']">{{'registrationDoctor' | translate}}</a>
+      </li>
+      <li class="nav-item" *ngIf="role === 'ROLE_ADMIN'">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/allPatientsList']">{{'Lista pacjentów'}}</a>
+      </li>
+      <li class="nav-item" *ngIf="role === 'ROLE_ADMIN'">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/allDoctorsList']">{{'Lista doktorów'}}</a>
+      </li>
+      <li class="nav-item" *ngIf="role === 'ROLE_PATIENT'">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/allPatientVisits']">Lista wizyt pacjenta</a>
+      </li>
+      <li class="nav-item" *ngIf="role === 'ROLE_DOCTOR'">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/allDoctorVisits']">Lista wizyt doktora</a>
+      </li>
+      <li class="nav-item" *ngIf="role === 'ROLE_PATIENT'">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/patientAccountData']">Moje dane</a>
+      </li>
+      <li class="nav-item" *ngIf="role === 'ROLE_PATIENT'">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/reserveVisit']">Zarezerwuj wizytę</a>
+      </li>
+
+
+      <li class="nav-item right-element" *ngIf="jwtToken == undefined">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/signIn']">{{'signIn' | translate}}</a>
+      </li>
+      <li class="nav-item right-element" *ngIf="jwtToken != undefined">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/home']" (click)="logOut()">{{'logOut' | translate}}</a>
+      </li>
+      <li class="choose-lang">
+        <select
+          class="form-control"
+          #selectedLang
+          (change)="switchLang(selectedLang.value)">
+          <option *ngFor="let language of translate.getLangs()"
+                  [value]="language"
+                  [selected]="language === translate.currentLang">
+            {{ language }}
+          </option>
+        </select>
+      </li>
+    </ul>
+    <!-- Links -->
+
+  </links>
+  <!-- Collapsible content -->
+
+</mdb-navbar>

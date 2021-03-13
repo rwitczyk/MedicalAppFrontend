@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<div class="main-component-content">
+
+  <table mdbTable>
+    <thead>
+    <tr>
+      <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr mdbTableCol *ngFor="let visit of allPatientVisits">
+      <th scope="row">{{visit.date}}</th>
+      <td>{{visit.fromTime}}</td>
+      <td>{{visit.toTime}}</td>
+      <td>{{visit.status}}</td>
+      <td>{{visit.description}}</td>
+      <td>
+        <button *ngIf="visit.status == 'TO_ACCEPT'" type="button" mdbBtn color="primary" mdbWavesEffect
+                (click)="cancelVisit(visit.id)">Anuluj
+        </button>
+      </td>
+      <td>
+        <button *ngIf="visit.status == 'ACCEPTED'" type="button" mdbBtn color="primary" mdbWavesEffect
+                (click)="downloadPdf(visit.id)">Pobierz rachunek PDF
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
