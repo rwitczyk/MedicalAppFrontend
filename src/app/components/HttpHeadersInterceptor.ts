@@ -13,7 +13,7 @@ export class HttpHeadersInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     this.token = sessionStorage.getItem('token');
 
-    console.log('TOKEN ' + this.token);
+    // console.log('TOKEN ' + this.token);
 
     if (this.token != null) {
       request = request.clone({

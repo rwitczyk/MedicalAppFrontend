@@ -13,12 +13,13 @@
       <td>{{patient.firstName}}</td>
       <td>{{patient.lastName}}</td>
       <td>{{patient.userLoginDataEntity.email}}</td>
-      <td>{{patient.userLoginDataEntity.enabled}}</td>
+      <td *ngIf="patient.userLoginDataEntity.enabled === true">TAK</td>
+      <td *ngIf="patient.userLoginDataEntity.enabled === false">NIE</td>
       <td>
-        <button *ngIf="patient.userLoginDataEntity.enabled == false" type="button" mdbBtn color="primary" mdbWavesEffect
+        <button *ngIf="patient.userLoginDataEntity.roleEntity.role !== 'ROLE_ADMIN' && patient.userLoginDataEntity.enabled == false" type="button" mdbBtn color="primary" mdbWavesEffect
                 (click)="enableAccount(patient.id)">Aktywuj
         </button>
-        <button *ngIf="patient.userLoginDataEntity.enabled == true" type="button" mdbBtn color="danger" mdbWavesEffect
+        <button *ngIf="patient.userLoginDataEntity.roleEntity.role !== 'ROLE_ADMIN' && patient.userLoginDataEntity.enabled == true" type="button" mdbBtn color="danger" mdbWavesEffect
                 (click)="disableAccount(patient.id)">Dezaktywuj
         </button>
       </td>
