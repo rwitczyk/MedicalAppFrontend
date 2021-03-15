@@ -49,10 +49,10 @@
     <mdb-success *ngIf="f.phoneNumber.valid && (f.phoneNumber.dirty || f.phoneNumber.touched)"></mdb-success>
   </div>
 
-  <div class="md-form">
-    <re-captcha (resolved)="resolved($event)" formControlName="recaptcha" siteKey="6LfN7QAaAAAAADwZKRxT340pUBOwojvEuyVwbk2R"></re-captcha>
-    <mdb-error style="top: auto;" *ngIf="f.recaptcha.errors && f.recaptcha.errors.required && (f.recaptcha.dirty || f.recaptcha.touched)">Pole wymagane</mdb-error>
-  </div>
+<!--  <div class="md-form">-->
+<!--    <re-captcha (resolved)="resolved($event)" formControlName="recaptcha" siteKey="6LfN7QAaAAAAADwZKRxT340pUBOwojvEuyVwbk2R"></re-captcha>-->
+<!--    <mdb-error style="top: auto;" *ngIf="f.recaptcha.errors && f.recaptcha.errors.required && (f.recaptcha.dirty || f.recaptcha.touched)">Pole wymagane</mdb-error>-->
+<!--  </div>-->
 
   <!-- Sign up button -->
   <button mdbBtn color="info" block="true" class="my-4" type="submit" (click)="sendForm()">{{'register' | translate}}</button>

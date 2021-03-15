@@ -24,7 +24,7 @@ export class RegisterAccountComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]],
       phoneNumber: ['', [Validators.required,
         Validators.pattern('(?<!\\w)(\\(?(\\+|00)?48\\)?)?[ -]?\\d{3}[ -]?\\d{3}[ -]?\\d{3}(?!\\w)')]],
-      recaptcha: ['', Validators.required],
+      // recaptcha: ['', Validators.required],
     });
   }
 
@@ -61,12 +61,12 @@ export class RegisterAccountComponent implements OnInit {
     });
   }
 
-  resolved(captchaResponse: string): void {
-    console.log(`Resolved response token: ${captchaResponse}`);
-    this.recaptchaService.sendToken(captchaResponse).subscribe(value => {
-      console.log('CORRECT - ' + value);
-    }, error => {
-      console.log('ERROR - ' + error.error);
-    });
-  }
+  // resolved(captchaResponse: string): void {
+  //   console.log(`Resolved response token: ${captchaResponse}`);
+  //   this.recaptchaService.sendToken(captchaResponse).subscribe(value => {
+  //     console.log('CORRECT - ' + value);
+  //   }, error => {
+  //     console.log('ERROR - ' + error.error);
+  //   });
+  // }
 }
