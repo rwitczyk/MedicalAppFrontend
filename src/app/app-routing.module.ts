@@ -15,15 +15,19 @@ import {ReserveVisitComponent} from './components/patient/reserve-visit/reserve-
 import {AllPatientVisitsComponent} from './components/patient/all-patient-visits/all-patient-visits.component';
 import {AllDoctorVisitsComponent} from './components/doctor/all-doctor-visits/all-doctor-visits.component';
 import {DoctorGuard} from './guard/doctor.guard';
+import {CreateNurseAccountComponent} from './components/nurse/create-nurse-account/create-nurse-account.component';
+import {AllNursesListComponent} from './components/admin/all-nurses-list/all-nurses-list.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'registerPatientAccount', component: RegisterAccountComponent},
   {path: 'registerDoctorAccount', component: CreateDoctorAccountComponent, canActivate: [AdminGuard]},
+  {path: 'registerNurseAccount', component: CreateNurseAccountComponent, canActivate: [AdminGuard]},
   {path: 'signIn', component: SignInComponent},
   {path: 'allPatientsList', component: AllPatientsListComponent, canActivate: [AdminGuard]},
   {path: 'allDoctorsList', component: AllDoctorsListComponent, canActivate: [AdminGuard]},
+  {path: 'allNursesList', component: AllNursesListComponent, canActivate: [AdminGuard]},
   {path: 'activateAccount/:token', component: ActivateAccountComponent},
   {path: 'patientAccountData', component: PatientAccountDataComponent, canActivate: [PatientGuard]},
   {path: 'reserveVisit', component: ReserveVisitComponent, canActivate: [PatientGuard]},
