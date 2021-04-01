@@ -47,7 +47,6 @@ export class CreateNurseAccountComponent implements OnInit {
     this.nurseModel.lastName = this.registerForm.controls.lastName.value;
     this.nurseModel.email = this.registerForm.controls.email.value;
     this.nurseModel.password = this.registerForm.controls.password.value;
-    console.log(this.nurseModel);
 
     this.nurseService.addNurseAccount(this.nurseModel).subscribe(() => {
       this.toastr.success('Konto pielęgniarki zostało utworzone!');

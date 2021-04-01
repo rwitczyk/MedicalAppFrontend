@@ -27,6 +27,7 @@ import { AllPatientVisitsComponent } from './components/patient/all-patient-visi
 import { AllDoctorVisitsComponent } from './components/doctor/all-doctor-visits/all-doctor-visits.component';
 import { CreateNurseAccountComponent } from './components/nurse/create-nurse-account/create-nurse-account.component';
 import { AllNursesListComponent } from './components/admin/all-nurses-list/all-nurses-list.component';
+import { NurseAccountDataComponent } from './components/nurse/nurse-account-data/nurse-account-data.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AllNursesListComponent } from './components/admin/all-nurses-list/all-n
     AllPatientVisitsComponent,
     AllDoctorVisitsComponent,
     CreateNurseAccountComponent,
-    AllNursesListComponent
+    AllNursesListComponent,
+    NurseAccountDataComponent
   ],
   imports: [
     BrowserModule,
