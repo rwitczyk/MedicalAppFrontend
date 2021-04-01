@@ -8,20 +8,20 @@
     </tr>
     </thead>
     <tbody>
-    <tr mdbTableCol *ngFor="let doctor of nursesList">
-      <th scope="row">{{doctor.id}}</th>
-      <td>{{doctor.firstName}}</td>
-      <td>{{doctor.lastName}}</td>
-      <td>{{doctor.userLoginDataEntity.email}}</td>
-      <td *ngIf="doctor.userLoginDataEntity.enabled === true">TAK</td>
-      <td *ngIf="doctor.userLoginDataEntity.enabled === false">NIE</td>
+    <tr mdbTableCol *ngFor="let nurse of nursesList">
+      <th scope="row">{{nurse.id}}</th>
+      <td>{{nurse.firstName}}</td>
+      <td>{{nurse.lastName}}</td>
+      <td>{{nurse.userLoginDataEntity.email}}</td>
+      <td *ngIf="nurse.userLoginDataEntity.enabled === true">TAK</td>
+      <td *ngIf="nurse.userLoginDataEntity.enabled === false">NIE</td>
       <td>
-<!--        <button *ngIf="doctor.userLoginDataEntity.roleEntity.role !== 'ROLE_ADMIN' && doctor.userLoginDataEntity.enabled == false" type="button" mdbBtn color="primary" mdbWavesEffect-->
-<!--                (click)="enableAccount(doctor.id)">Aktywuj-->
-<!--        </button>-->
-<!--        <button *ngIf="doctor.userLoginDataEntity.roleEntity.role !== 'ROLE_ADMIN' && doctor.userLoginDataEntity.enabled == true" type="button" mdbBtn color="danger" mdbWavesEffect-->
-<!--                (click)="disableAccount(doctor.id)">Dezaktywuj-->
-<!--        </button>-->
+        <button *ngIf="nurse.userLoginDataEntity.roleEntity.role !== 'ROLE_ADMIN' && nurse.userLoginDataEntity.enabled == false" type="button" mdbBtn color="primary" mdbWavesEffect
+                (click)="enableAccount(nurse.id)">Aktywuj
+        </button>
+        <button *ngIf="nurse.userLoginDataEntity.roleEntity.role !== 'ROLE_ADMIN' && nurse.userLoginDataEntity.enabled == true" type="button" mdbBtn color="danger" mdbWavesEffect
+                (click)="disableAccount(nurse.id)">Dezaktywuj
+        </button>
       </td>
     </tr>
     </tbody>

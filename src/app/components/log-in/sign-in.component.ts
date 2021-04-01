@@ -30,6 +30,18 @@ export class SignInComponent implements OnInit {
     return this.signInForm.controls;
   }
 
+  getViewRoleNameByRole(roleName: string): string {
+    switch (roleName) {
+      case 'ROLE_PATIENT':
+        return 'Pacjent';
+      case 'ROLE_ADMIN':
+        return 'Admin';
+      case 'ROLE_DOCTOR':
+        return 'Doktor';
+      case 'ROLE_NURSE':
+        return 'Pielegniarka';
+    }
+  }
 
   sendForm(): void {
     if (this.signInForm.invalid) {
@@ -47,7 +59,7 @@ export class SignInComponent implements OnInit {
       // @ts-ignore
       sessionStorage.setItem('token', value.token);
       // @ts-ignore
-      this.toastr.success('Zalogowano - ' + jwtDecode(value.token).role);
+      this.toastr.success('Zalogowano - ' + this.getViewRoleNameByRole(jwtDecode(value.token).role));
       this.router.navigate(['home']);
     }, error1 => {
       this.toastr.error('Blad logowania');

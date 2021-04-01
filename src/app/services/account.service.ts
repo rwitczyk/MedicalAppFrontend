@@ -27,6 +27,14 @@ export class AccountService {
     return this.http.get<void>(environment.backendUrl + '/doctor/deactivateAccount/' + id);
   }
 
+  activateNurseAccount(id: number): Observable<void> {
+    return this.http.get<void>(environment.backendUrl + '/nurse/activateAccount/' + id);
+  }
+
+  disableNurseAccount(id: number): Observable<void> {
+    return this.http.get<void>(environment.backendUrl + '/nurse/deactivateAccount/' + id);
+  }
+
   activateAccountByLink(token: string): Observable<void> {
     return this.http.get<void>(environment.backendUrl + '/patient/confirmAccount/' + token);
   }

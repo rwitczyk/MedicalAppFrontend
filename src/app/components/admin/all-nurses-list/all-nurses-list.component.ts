@@ -23,18 +23,18 @@ export class AllNursesListComponent implements OnInit {
     });
   }
 
-  // enableAccount(id: number): void {
-  //   this.accountService.activateDoctorAccount(id).subscribe(() => {
-  //     this.toastr.success('Konto zostalo aktywowane!');
-  //     this.ngOnInit();
-  //   });
-  // }
+  enableAccount(id: number): void {
+    this.accountService.activateNurseAccount(id).subscribe(() => {
+      this.toastr.success('Konto zostalo aktywowane!');
+      this.ngOnInit();
+    });
+  }
 
-  // disableAccount(id: number): void {
-  //   this.accountService.disableDoctorAccount(id).subscribe(() => {
-  //     this.toastr.success('Konto zostalo dezaktywowane!');
-  //     this.ngOnInit();
-  //   });
-  // }
+  disableAccount(id: number): void {
+    this.accountService.disableNurseAccount(id).subscribe(() => {
+      this.toastr.success('Konto zostalo dezaktywowane!');
+      this.ngOnInit();
+    });
+  }
 
 }
