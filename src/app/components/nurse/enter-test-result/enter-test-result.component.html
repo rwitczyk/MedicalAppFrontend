@@ -1,0 +1,71 @@
+<app-navbar></app-navbar>
+<div class="main-component-content">
+
+    <form [formGroup]="enterTestResult" class="text-center border border-light p-5">
+
+        <h2 style="text-align: center">Wprowadz wyniki</h2>
+
+        <div class="md-form">
+            <select class="browser-default custom-select" formControlName="selectedPatientId">
+                <option selected value="">Wybierz pacjenta</option>
+                <option value="{{patient.id}}" *ngFor="let patient of patientsList">{{patient.firstName}}
+                    {{patient.lastName}} {{patient.pesel}}</option>
+            </select>
+        </div>
+
+        <div class="md-form">
+            <div style="float: left; margin-right: 1rem">Temat:</div>
+            <input style="display: block" type="text" formControlName="subject">
+        </div>
+        <div class="md-form">
+            <div style="float: left; margin-right: 1rem">Opis:</div>
+            <input style="display: block" type="text" formControlName="description">
+        </div>
+
+        <div class="md-form"> 
+            <h6 style="text-align: center ">PCR:</h6>
+            <div class="md-form">
+                <select class="browser-default custom-select" formControlName="selectedPcR">
+                    <option  value="true">Pozytywny </option>
+                    <option  value="false" selected>Negatywny </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="md-form"> 
+            <h6 style="text-align: center ">Antygen:</h6>
+            <div class="md-form">
+                <select class="browser-default custom-select" formControlName="selectedAntygen">
+                    <option  value="true">Pozytywny </option>
+                    <option  value="false" selected>Negatywny </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="md-form"> 
+            <h6 style="text-align: center ">Sero:</h6>
+            <div class="md-form">
+                <select class="browser-default custom-select" formControlName="selectedSero">
+                    <option  value="true">Pozytywny </option>
+                    <option  value="false" default>Negatywny </option>
+                </select>
+            </div>
+        </div>
+
+        <!-- <div>
+      <div style="float: left; margin-right: 1rem">Wybierz dzień:</div>
+      <input style="display: block" type="date" formControlName="visitDate" (change)="getAvailableVisits()">
+    </div>
+
+    <div class="md-form">
+      <select class="browser-default custom-select" formControlName="visitId">
+        <option selected value="">Wybierz czas</option>
+        <option value="{{visit.id}}" *ngFor="let visit of availableVisitsList">{{visit.fromTime}} - {{visit.toTime}}</option>
+      </select>
+    </div> -->
+    </form>
+
+
+    <button mdbBtn color="info" block="true" class="my-4" type="submit" (click)="sendForm()">Wyślij</button>
+
+</div>

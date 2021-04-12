@@ -54,6 +54,7 @@ export class RegisterAccountComponent implements OnInit {
     console.log(this.patientModel);
 
     this.patientService.createPatientAccount(this.patientModel).subscribe(() => {
+      console.log(this.patientModel)
       this.toastr.success('Konto zostało utworzone!');
       this.router.navigate(['/home']);
     }, error1 => {

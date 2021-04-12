@@ -38,6 +38,9 @@
       <li class="nav-item" *ngIf="role === 'ROLE_NURSE'">
         <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/nurseAccountData']">Moje dane</a>
       </li>
+      <li class="nav-item" *ngIf="role === 'ROLE_NURSE'">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/enterTestResult']">Wprowadź wyniki badań</a>
+      </li>
       <li class="nav-item" *ngIf="role === 'ROLE_PATIENT'">
         <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/reserveVisit']">Zarezerwuj wizytę</a>
       </li>
