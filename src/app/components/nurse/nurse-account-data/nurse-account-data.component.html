@@ -4,26 +4,22 @@
   <!-- Default form register -->
   <form [formGroup]="registerForm" class="text-center border border-light p-5">
 
-    <p class="h4 mb-4">Edycja danych konta pielęgniarki</p>
+    <p class="h4 mb-4">Edycja hasła</p>
 
     <div class="md-form">
-      <input mdbInput mdbValidate type="text" id="firstName" class="form-control" formControlName="firstName" [(ngModel)]="initNurseModel.firstName">
+      <input mdbInput disabled type="text" id="firstName" class="form-control" formControlName="firstName" [(ngModel)]="initNurseModel.firstName">
       <label for="firstName">{{'firstName' | translate}}</label>
-      <mdb-error *ngIf="f.firstName.errors && f.firstName.errors.required && (f.firstName.dirty || f.firstName.touched)">Pole wymagane</mdb-error>
-      <mdb-success *ngIf="f.firstName.valid && (f.firstName.dirty || f.firstName.touched)"></mdb-success>
     </div>
 
     <div class="md-form">
-      <input mdbInput mdbValidate type="text" id="lastName" class="form-control" formControlName="lastName" [(ngModel)]="initNurseModel.lastName">
+      <input mdbInput disabled type="text" id="lastName" class="form-control" formControlName="lastName" [(ngModel)]="initNurseModel.lastName">
       <label for="lastName">{{'lastName' | translate}}</label>
-      <mdb-error *ngIf="f.lastName.errors && f.lastName.errors.required && (f.lastName.dirty || f.lastName.touched)">Pole wymagane</mdb-error>
-      <mdb-success *ngIf="f.lastName.valid && (f.lastName.dirty || f.lastName.touched)"></mdb-success>
     </div>
 
 
     <!-- E-mail -->
     <div class="md-form">
-      <input mdbInput mdbValidate disabled type="text" id="email" class="form-control" formControlName="email" [(ngModel)]="initNurseModel.userLoginDataEntity.email">
+      <input mdbInput disabled type="text" id="email" class="form-control" formControlName="email" [(ngModel)]="initNurseModel.userLoginDataEntity.email">
       <label for="email">Email</label>
     </div>
 
@@ -35,9 +31,15 @@
       <mdb-success *ngIf="f.password.valid && (f.password.dirty || f.password.touched)"></mdb-success>
     </div>
 
+    <div class="md-form">
+      <input mdbInput mdbValidate type="password" id="passwordRepeated" class="form-control" formControlName="passwordRepeated">
+      <label for="passwordRepeated">Powtórz nowe hasło</label>
+      <mdb-error *ngIf="f.passwordRepeated.errors && f.passwordRepeated.errors.minlength && (f.passwordRepeated.dirty || f.passwordRepeated.touched)">Niewystarczająca ilość znaków</mdb-error>
+      <mdb-success *ngIf="f.passwordRepeated.valid && (f.passwordRepeated.dirty || f.passwordRepeated.touched)"></mdb-success>
+    </div>
+
     <!-- Sign up button -->
     <button mdbBtn color="info" block="true" class="my-4" type="submit" (click)="sendForm()">Edytuj</button>
 
   </form>
-  <!-- Default form register -->
 </div>

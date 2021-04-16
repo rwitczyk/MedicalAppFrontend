@@ -28,6 +28,7 @@ export class NurseAccountDataComponent implements OnInit {
       lastName: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', [Validators.minLength(6)]],
+      passwordRepeated: ['', [Validators.minLength(6)]],
     });
   }
 
@@ -45,6 +46,10 @@ export class NurseAccountDataComponent implements OnInit {
   }
 
   sendForm(): void {
+    if (!this.checkIfBothPasswordsAreTheSame()) {
+      return;
+    }
+
     if (this.registerForm.invalid) {
       (Object as any).values(this.registerForm.controls).forEach(control => {
         control.markAsTouched();
@@ -54,15 +59,21 @@ export class NurseAccountDataComponent implements OnInit {
     }
 
     this.editNurseAccount.nurseId = this.initNurseModel.id;
-    this.editNurseAccount.firstName = this.registerForm.controls.firstName.value;
-    this.editNurseAccount.lastName = this.registerForm.controls.lastName.value;
     this.editNurseAccount.password = this.registerForm.controls.password.value;
 
     this.nurseService.editNurseAccount(this.editNurseAccount).subscribe(() => {
-      this.toastr.success('Dane zostaly zmienione!');
+      this.toastr.success('Haslo zostalo zmienione!');
       this.router.navigate(['/home']);
     }, error1 => {
       console.log('BLAD' + error1.error);
     });
+  }
+
+  checkIfBothPasswordsAreTheSame(): boolean {
+    if (this.registerForm.controls.password.value !== this.registerForm.controls.passwordRepeated.value) {
+      this.toastr.error('Wprowadzone hasla są różne!');
+      return false;
+    }
+    return true;
   }
 }
