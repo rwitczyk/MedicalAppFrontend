@@ -28,7 +28,8 @@ export class ReserveVisitComponent implements OnInit {
     this.reserveVisit = this.formBuilder.group({
       selectedDoctorId: ['', Validators.required],
       visitId: ['', Validators.required],
-      visitDate: ['', Validators.required]
+      visitDate: ['', Validators.required],
+      visitType: ['', Validators.required]
     });
   }
 
@@ -54,6 +55,7 @@ export class ReserveVisitComponent implements OnInit {
     this.reserveVisitModel.doctorId = this.reserveVisit.controls.selectedDoctorId.value;
     this.reserveVisitModel.visitDate = this.reserveVisit.controls.visitDate.value;
     this.reserveVisitModel.visitId = this.reserveVisit.controls.visitId.value;
+    this.reserveVisitModel.visitType = this.reserveVisit.controls.visitType.value;
     this.patientService.reserveVisit(this.reserveVisitModel).subscribe(() => {
       this.toastr.success('Wizyta zostala zarezerwowana!');
       this.router.navigate(['/allPatientVisits']);

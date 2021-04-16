@@ -3,4 +3,5 @@ export class ReserveVisitModel {
   visitDate: Date;
   visitId: number;
   patientAccountId: number;
+  visitType: string;
 }

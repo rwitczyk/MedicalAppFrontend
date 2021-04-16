@@ -24,6 +24,14 @@
         <option value="{{visit.id}}" *ngFor="let visit of availableVisitsList">{{visit.fromTime}} - {{visit.toTime}}</option>
       </select>
     </div>
+
+    <div class="md-form">
+      <select class="browser-default custom-select" formControlName="visitType">
+        <option selected value="">Wybierz typ wizyty</option>
+        <option value="standard">stacjonarna</option>
+        <option value="online">zdalna</option>
+      </select>
+    </div>
   </form>
 
   <button mdbBtn color="info" block="true" class="my-4" type="submit" (click)="sendForm()">Zarezerwuj</button>
