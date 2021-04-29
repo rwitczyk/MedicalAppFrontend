@@ -5,6 +5,7 @@ import {LogInModel} from '../../models/LogInModel';
 import {Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import jwtDecode from 'jwt-decode';
+import {AdService} from '../../services/ad.service';
 
 @Component({
   selector: 'app-log-in',
@@ -15,7 +16,8 @@ export class SignInComponent implements OnInit {
   signInForm: any;
   loginModel: LogInModel;
 
-  constructor(private formBuilder: FormBuilder, private logInService: LogInService, private router: Router, private toastr: ToastrService) {
+  constructor(private formBuilder: FormBuilder, private logInService: LogInService,
+              private router: Router, private toastr: ToastrService, private adService: AdService) {
     this.signInForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -60,7 +62,11 @@ export class SignInComponent implements OnInit {
       sessionStorage.setItem('token', value.token);
       // @ts-ignore
       this.toastr.success('Zalogowano - ' + this.getViewRoleNameByRole(jwtDecode(value.token).role));
-      this.router.navigate(['home']);
+      // @ts-ignore
+      this.adService.getPatientAdvertisingGroups(jwtDecode(sessionStorage.getItem('token')).user_id).subscribe(adGroups => {
+        this.adService.adGroups = adGroups;
+        this.router.navigate(['home']);
+      });
     }, error1 => {
       this.toastr.error('Blad logowania');
       console.log(error1.error);

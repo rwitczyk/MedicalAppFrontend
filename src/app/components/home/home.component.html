@@ -2,4 +2,7 @@
 <div class="main-component-content">
 
   <h1 style="text-align: center; margin-top: 5rem">Witaj serdecznie</h1>
+  <div class="advertise" *ngIf="role === 'ROLE_PATIENT' ">
+    <app-ad-banner [ads]="ads"></app-ad-banner>
+  </div>
 </div>

@@ -29,6 +29,9 @@ import { CreateNurseAccountComponent } from './components/nurse/create-nurse-acc
 import { AllNursesListComponent } from './components/admin/all-nurses-list/all-nurses-list.component';
 import { NurseAccountDataComponent } from './components/nurse/nurse-account-data/nurse-account-data.component';
 import { EnterTestResultComponent } from './components/nurse/enter-test-result/enter-test-result.component';
+import { AdDirective } from './ad.directive';
+import { AdBannerComponent } from './ad-banner/ad-banner.component';
+import {DentistAdComponent} from './adds/dentist-ad.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,10 @@ import { EnterTestResultComponent } from './components/nurse/enter-test-result/e
     CreateNurseAccountComponent,
     AllNursesListComponent,
     NurseAccountDataComponent,
-    EnterTestResultComponent
+    EnterTestResultComponent,
+    AdDirective,
+    AdBannerComponent,
+    DentistAdComponent
   ],
   imports: [
     BrowserModule,
@@ -77,6 +83,7 @@ import { EnterTestResultComponent } from './components/nurse/enter-test-result/e
       multi: true
     }
   ],
+  entryComponents: [DentistAdComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
