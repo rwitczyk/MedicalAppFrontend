@@ -1,7 +1,7 @@
 {
   "home": "DE_HOME",
   "registration": "DE_Rejestracja",
-  "registrationDoctor": "DE_Rejestracja doktora",
+  "registrationDoctor": "DE_Rejestracja lekarza",
   "registrationNurse": "DE_Rejestracja pielęgniarki",
   "signIn": "DE_Logowanie",
   "logOut": "DE_Wyloguj",

@@ -7,7 +7,7 @@
 
     <div class="md-form">
       <select class="browser-default custom-select" formControlName="selectedDoctorId">
-        <option selected value="">Wybierz doktora</option>
+        <option selected value="">Wybierz lekarza</option>
         <option value="{{doctor.id}}"
                 *ngFor="let doctor of doctorsList">{{doctor.firstName}} {{doctor.lastName}} {{doctor.specialization}}</option>
       </select>

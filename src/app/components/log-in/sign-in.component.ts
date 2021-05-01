@@ -39,7 +39,7 @@ export class SignInComponent implements OnInit {
       case 'ROLE_ADMIN':
         return 'Admin';
       case 'ROLE_DOCTOR':
-        return 'Doktor';
+        return 'Lekarz';
       case 'ROLE_NURSE':
         return 'Pielegniarka';
     }

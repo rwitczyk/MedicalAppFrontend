@@ -18,19 +18,19 @@
         <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/registerNurseAccount']">{{'registrationNurse' | translate}}</a>
       </li>
       <li class="nav-item" *ngIf="role === 'ROLE_ADMIN'">
-        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/allPatientsList']">{{'Lista pacjentów'}}</a>
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/allPatientsList']">Lista pacjentów</a>
       </li>
       <li class="nav-item" *ngIf="role === 'ROLE_ADMIN'">
-        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/allDoctorsList']">{{'Lista doktorów'}}</a>
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/allDoctorsList']">Lista lekarzy</a>
       </li>
       <li class="nav-item" *ngIf="role === 'ROLE_ADMIN'">
-        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/allNursesList']">{{'Lista pielęgniarek'}}</a>
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/allNursesList']">Lista pielęgniarek</a>
       </li>
       <li class="nav-item" *ngIf="role === 'ROLE_PATIENT'">
         <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/allPatientVisits']">Lista wizyt pacjenta</a>
       </li>
       <li class="nav-item" *ngIf="role === 'ROLE_DOCTOR'">
-        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/allDoctorVisits']">Lista wizyt doktora</a>
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/allDoctorVisits']">Lista wizyt lekarza</a>
       </li>
       <li class="nav-item" *ngIf="role === 'ROLE_PATIENT'">
         <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/patientAccountData']">Moje dane</a>

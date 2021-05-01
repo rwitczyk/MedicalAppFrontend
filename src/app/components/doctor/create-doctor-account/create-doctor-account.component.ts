@@ -54,7 +54,7 @@ export class CreateDoctorAccountComponent implements OnInit {
     console.log(this.doctorModel);
 
     this.doctorService.createDoctorAccount(this.doctorModel).subscribe(() => {
-      this.toastr.success('Konto doktora zostało utworzone!');
+      this.toastr.success('Konto lekarza zostało utworzone!');
       this.router.navigate(['/home']);
     }, error1 => {
       console.log('BLAD' + error1.error);
