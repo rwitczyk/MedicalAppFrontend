@@ -20,6 +20,7 @@ import {AllNursesListComponent} from './components/admin/all-nurses-list/all-nur
 import {NurseAccountDataComponent} from './components/nurse/nurse-account-data/nurse-account-data.component';
 import {EnterTestResultComponent} from './components/nurse/enter-test-result/enter-test-result.component';
 import {NurseGuard} from './guard/nurse.guard';
+import {CovidTestRegistrationComponent} from './components/covid-test-registration/covid-test-registration.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -34,7 +35,8 @@ const routes: Routes = [
   {path: 'activateAccount/:token', component: ActivateAccountComponent},
   {path: 'patientAccountData', component: PatientAccountDataComponent, canActivate: [PatientGuard]},
   {path: 'nurseAccountData', component: NurseAccountDataComponent, canActivate: [NurseGuard]},
-  {path: 'enterTestResult', component: EnterTestResultComponent },
+  {path: 'enterTestResult', component: EnterTestResultComponent},
+  {path: 'covidTestRegistration', component: CovidTestRegistrationComponent},
   {path: 'reserveVisit', component: ReserveVisitComponent, canActivate: [PatientGuard]},
   {path: 'allPatientVisits', component: AllPatientVisitsComponent, canActivate: [PatientGuard]},
   {path: 'allDoctorVisits', component: AllDoctorVisitsComponent, canActivate: [DoctorGuard]},

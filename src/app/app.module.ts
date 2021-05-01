@@ -32,6 +32,7 @@ import { EnterTestResultComponent } from './components/nurse/enter-test-result/e
 import { AdDirective } from './ad.directive';
 import { AdBannerComponent } from './ad-banner/ad-banner.component';
 import {DentistAdComponent} from './adds/dentist-ad.component';
+import { CovidTestRegistrationComponent } from './components/covid-test-registration/covid-test-registration.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import {DentistAdComponent} from './adds/dentist-ad.component';
     AllNursesListComponent,
     NurseAccountDataComponent,
     EnterTestResultComponent,
+    CovidTestRegistrationComponent,
     AdDirective,
     AdBannerComponent,
     DentistAdComponent

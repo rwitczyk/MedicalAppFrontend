@@ -38,6 +38,9 @@
       <li class="nav-item" *ngIf="role === 'ROLE_NURSE'">
         <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/nurseAccountData']">Moje dane</a>
       </li>
+      <li class="nav-item" *ngIf="role === 'ROLE_PATIENT' || role === 'ROLE_NURSE' || role === 'ROLE_DOCTOR'">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/covidTestRegistration']">Zapis na badania COVID-19</a>
+      </li>
       <li class="nav-item" *ngIf="role === 'ROLE_NURSE'">
         <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/enterTestResult']">Wprowadź wyniki badań</a>
       </li>
