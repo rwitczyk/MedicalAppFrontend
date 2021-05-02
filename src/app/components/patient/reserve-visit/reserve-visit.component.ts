@@ -18,6 +18,7 @@ import {Router} from '@angular/router';
 })
 export class ReserveVisitComponent implements OnInit {
   doctorsList: DoctorModel[];
+  filteredDoctorsList: DoctorModel[];
   reserveVisit: FormGroup;
   getAvailableVisitsModel = new GetAvailableVisitsModel();
   availableVisitsList: VisitsListModel[];
@@ -26,11 +27,13 @@ export class ReserveVisitComponent implements OnInit {
   constructor(private doctorService: DoctorService, private formBuilder: FormBuilder, private toastr: ToastrService,
               private patientService: PatientService, private router: Router) {
     this.reserveVisit = this.formBuilder.group({
+      specialization: ['', Validators.required],
       selectedDoctorId: ['', Validators.required],
       visitId: ['', Validators.required],
       visitDate: ['', Validators.required],
       visitType: ['', Validators.required]
     });
+    this.filteredDoctorsList = [];
   }
 
   ngOnInit(): void {
@@ -69,5 +72,14 @@ export class ReserveVisitComponent implements OnInit {
       this.availableVisitsList = value;
       console.log(this.availableVisitsList);
     });
+  }
+
+  reloadDoctorsList(): void {
+    this.filteredDoctorsList = [];
+    for (const doctor of this.doctorsList) {
+      if (doctor.specialization === this.reserveVisit.controls.specialization.value) {
+        this.filteredDoctorsList.push(doctor);
+      }
+    }
   }
 }

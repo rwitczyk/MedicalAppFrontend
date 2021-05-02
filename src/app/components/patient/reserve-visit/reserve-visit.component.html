@@ -6,10 +6,19 @@
     <h2 style="text-align: center">Rezerwacja wizyty</h2>
 
     <div class="md-form">
+      <select class="browser-default custom-select" formControlName="specialization" (change)="reloadDoctorsList()">
+        <option selected value="">Wybierz specjalizacje</option>
+        <option value="Stomatolog">Stomatolog</option>
+        <option value="Chirurg">Chirurg</option>
+        <option value="Ortopeda">Ortopeda</option>
+      </select>
+    </div>
+
+    <div class="md-form">
       <select class="browser-default custom-select" formControlName="selectedDoctorId">
         <option selected value="">Wybierz lekarza</option>
         <option value="{{doctor.id}}"
-                *ngFor="let doctor of doctorsList">{{doctor.firstName}} {{doctor.lastName}} {{doctor.specialization}}</option>
+                *ngFor="let doctor of filteredDoctorsList">{{doctor.firstName}} {{doctor.lastName}} {{doctor.specialization}}</option>
       </select>
     </div>
 
