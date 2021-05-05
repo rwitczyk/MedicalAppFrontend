@@ -33,6 +33,7 @@ import { AdDirective } from './ad.directive';
 import { AdBannerComponent } from './ad-banner/ad-banner.component';
 import {DentistAdComponent} from './adds/dentist-ad.component';
 import { CovidTestRegistrationComponent } from './components/covid-test-registration/covid-test-registration.component';
+import { PatientVisitsHistoryComponent } from './components/doctor/patient-visits-history/patient-visits-history.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { CovidTestRegistrationComponent } from './components/covid-test-registra
     CovidTestRegistrationComponent,
     AdDirective,
     AdBannerComponent,
-    DentistAdComponent
+    DentistAdComponent,
+    PatientVisitsHistoryComponent
   ],
   imports: [
     BrowserModule,

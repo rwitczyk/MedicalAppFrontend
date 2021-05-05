@@ -3,6 +3,8 @@ import {PatientService} from '../../../services/patient.service';
 import {PatientModel} from '../../../models/PatientModel';
 import {ToastrService} from 'ngx-toastr';
 import {AccountService} from '../../../services/account.service';
+import jwtDecode from 'jwt-decode';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-all-patients-list',
@@ -12,9 +14,17 @@ import {AccountService} from '../../../services/account.service';
 export class AllPatientsListComponent implements OnInit {
   headElements = ['id', 'imie', 'nazwisko', 'email', 'aktywne', 'akcja'];
   patientsList: PatientModel[];
+  role;
 
-  constructor(private patientService: PatientService, private toastr: ToastrService, private accountService: AccountService) {
+  constructor(private patientService: PatientService, private toastr: ToastrService,
+              private accountService: AccountService, private router: Router) {
+    // @ts-ignore
+    this.role = jwtDecode(sessionStorage.getItem('token')).role;
+    if (this.role === 'ROLE_DOCTOR') {
+      this.headElements = ['imie', 'nazwisko', 'email', 'aktywne', 'akcja'];
+    }
   }
+
 
   ngOnInit(): void {
     this.patientService.getAllPatients().subscribe(value => {
@@ -34,5 +44,9 @@ export class AllPatientsListComponent implements OnInit {
       this.toastr.success('Konto zostalo dezaktywowane!');
       this.ngOnInit();
     });
+  }
+
+  goToPatientHistory(patientId: number): void {
+    this.router.navigate(['patientVisitsHistory/' + patientId]);
   }
 }

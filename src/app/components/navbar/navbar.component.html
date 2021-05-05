@@ -17,7 +17,7 @@
       <li class="nav-item" *ngIf="role === 'ROLE_ADMIN'">
         <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/registerNurseAccount']">{{'registrationNurse' | translate}}</a>
       </li>
-      <li class="nav-item" *ngIf="role === 'ROLE_ADMIN'">
+      <li class="nav-item" *ngIf="role === 'ROLE_ADMIN'|| role === 'ROLE_DOCTOR' ">
         <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/allPatientsList']">Lista pacjentów</a>
       </li>
       <li class="nav-item" *ngIf="role === 'ROLE_ADMIN'">

@@ -28,6 +28,10 @@ export class DoctorService {
     return this.http.get<VisitsListModel[]>(environment.backendUrl + '/doctor/allVisits/' + doctorAccountId);
   }
 
+  getAllDoctorVisitsByPatient(doctorAccountId: number, patientId: number): Observable<VisitsListModel[]> {
+    return this.http.get<VisitsListModel[]>(environment.backendUrl + '/doctor/allVisits/' + doctorAccountId + '/' + patientId);
+  }
+
   acceptVisit(acceptVisitModel: AcceptVisitModel): Observable<void> {
     return this.http.post<void>(environment.backendUrl + '/doctor/acceptVisit', acceptVisitModel);
   }

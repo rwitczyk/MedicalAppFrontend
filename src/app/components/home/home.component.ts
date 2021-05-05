@@ -22,7 +22,8 @@ export class HomeComponent implements OnInit {
       // @ts-ignore
       this.role = jwtDecode(token).role;
     }
-
-    this.ads = this.adService.getAds();
+    if (this.role === 'ROLE_PATIENT') {
+      this.ads = this.adService.getAds();
+    }
   }
 }

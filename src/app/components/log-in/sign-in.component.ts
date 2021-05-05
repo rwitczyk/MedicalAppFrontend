@@ -63,10 +63,15 @@ export class SignInComponent implements OnInit {
       // @ts-ignore
       this.toastr.success('Zalogowano - ' + this.getViewRoleNameByRole(jwtDecode(value.token).role));
       // @ts-ignore
-      this.adService.getPatientAdvertisingGroups(jwtDecode(sessionStorage.getItem('token')).user_id).subscribe(adGroups => {
-        this.adService.adGroups = adGroups;
+      if (jwtDecode(value.token).role === 'ROLE_PATIENT') {
+        // @ts-ignore
+        this.adService.getPatientAdvertisingGroups(jwtDecode(sessionStorage.getItem('token')).user_id).subscribe(adGroups => {
+          this.adService.adGroups = adGroups;
+          this.router.navigate(['home']);
+        });
+      } else {
         this.router.navigate(['home']);
-      });
+      }
     }, error1 => {
       this.toastr.error('Blad logowania');
       console.log(error1.error);

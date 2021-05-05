@@ -11,7 +11,7 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class AllPatientVisitsComponent implements OnInit {
   allPatientVisits: VisitsListModel[];
-  headElements = ['Data', 'Od', 'Do', 'Status wizyty', 'Opis', 'Akcja'];
+  headElements = ['Data', 'Od', 'Do', 'Status wizyty', 'Lekarz', 'Opis', 'Akcja'];
 
   constructor(private patientService: PatientService, private toastr: ToastrService) {
   }

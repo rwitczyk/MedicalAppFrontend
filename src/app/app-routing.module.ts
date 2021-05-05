@@ -21,6 +21,8 @@ import {NurseAccountDataComponent} from './components/nurse/nurse-account-data/n
 import {EnterTestResultComponent} from './components/nurse/enter-test-result/enter-test-result.component';
 import {NurseGuard} from './guard/nurse.guard';
 import {CovidTestRegistrationComponent} from './components/covid-test-registration/covid-test-registration.component';
+import {AdminDoctorGuard} from './guard/admin-doctor-guard.service';
+import {PatientVisitsHistoryComponent} from './components/doctor/patient-visits-history/patient-visits-history.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -29,7 +31,7 @@ const routes: Routes = [
   {path: 'registerDoctorAccount', component: CreateDoctorAccountComponent, canActivate: [AdminGuard]},
   {path: 'registerNurseAccount', component: CreateNurseAccountComponent, canActivate: [AdminGuard]},
   {path: 'signIn', component: SignInComponent},
-  {path: 'allPatientsList', component: AllPatientsListComponent, canActivate: [AdminGuard]},
+  {path: 'allPatientsList', component: AllPatientsListComponent, canActivate: [AdminDoctorGuard]},
   {path: 'allDoctorsList', component: AllDoctorsListComponent, canActivate: [AdminGuard]},
   {path: 'allNursesList', component: AllNursesListComponent, canActivate: [AdminGuard]},
   {path: 'activateAccount/:token', component: ActivateAccountComponent},
@@ -40,6 +42,7 @@ const routes: Routes = [
   {path: 'reserveVisit', component: ReserveVisitComponent, canActivate: [PatientGuard]},
   {path: 'allPatientVisits', component: AllPatientVisitsComponent, canActivate: [PatientGuard]},
   {path: 'allDoctorVisits', component: AllDoctorVisitsComponent, canActivate: [DoctorGuard]},
+  {path: 'patientVisitsHistory/:patientId', component: PatientVisitsHistoryComponent, canActivate: [DoctorGuard]},
   {path: '**', component: ErrorPageComponent}
 ];
 
