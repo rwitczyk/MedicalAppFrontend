@@ -22,6 +22,7 @@ export class CovidTestRegistrationComponent implements OnInit {
               private router: Router) {
     this.covidTestRegistrationForm = this.formBuilder.group({
       visitDate: [''],
+      visitType: [''],
       visitId: ['', Validators.required],
       pcr: [false],
       antygen: [false],
@@ -45,16 +46,17 @@ export class CovidTestRegistrationComponent implements OnInit {
     // @ts-ignore
     this.registerForACovidTestModel.accountId = jwtDecode(sessionStorage.getItem('token')).user_id;
     this.registerForACovidTestModel.visitId = this.covidTestRegistrationForm.controls.visitId.value;
+    this.registerForACovidTestModel.visitType = this.covidTestRegistrationForm.controls.visitType.value;
     this.registerForACovidTestModel.pcrTest = this.covidTestRegistrationForm.controls.pcr.value;
     this.registerForACovidTestModel.antygenTest = this.covidTestRegistrationForm.controls.antygen.value;
     this.registerForACovidTestModel.seroTest = this.covidTestRegistrationForm.controls.sero.value;
     this.registerForACovidTestModel.price = this.price;
 
     this.labolatoryTestService.registerForACovidTest(this.registerForACovidTestModel).subscribe(() => {
-      this.toastr.success('Zapisales sie na szczepienie covid!');
+      this.toastr.success('Zapisales sie badanie!');
       this.router.navigate(['/home']);
     }, error => {
-      this.toastr.error('Istnieje juz zarezerwowana wizyta dla tego konta!');
+      this.toastr.error('Istnieje juz zarezerwowana wizyta covid dla tego konta!');
     });
   }
 
@@ -72,6 +74,14 @@ export class CovidTestRegistrationComponent implements OnInit {
     }
     if (this.covidTestRegistrationForm.controls.sero.value) {
       this.price += 50;
+    }
+  }
+
+  reloadSection(): void {
+    if (this.covidTestRegistrationForm.controls.visitType.value === 'covidTest') {
+      document.getElementById('onlyForCovid').style.display = 'block';
+    } else {
+      document.getElementById('onlyForCovid').style.display = 'none';
     }
   }
 }

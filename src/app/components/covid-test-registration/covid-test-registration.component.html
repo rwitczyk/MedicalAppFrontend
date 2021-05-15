@@ -3,7 +3,17 @@
 <div class="main-component-content">
 
   <form [formGroup]="covidTestRegistrationForm" class="text-center border border-light p-5">
-    <p class="h4 mb-4">Zapis na badanie Covid-19</p>
+    <p class="h4 mb-4">Zapis na badania</p>
+
+    <div class="md-form">
+      <select class="browser-default custom-select" formControlName="visitType" (change)="reloadSection()">
+        <option selected value="">Wybierz rodzaj badania</option>
+        <option value="covidTest">Test covid-19</option>
+        <option value="bloodTest">Badanie krwi</option>
+        <option value="pressureTest">Pomiar ciśnienia</option>
+      </select>
+    </div>
+
     <div>
       <div style="float: left; margin-right: 1rem">Wybierz dzień:</div>
       <input style="display: block" type="date" formControlName="visitDate" (change)="getAvailableVisits()">
@@ -12,32 +22,35 @@
     <div class="md-form">
       <select class="browser-default custom-select" formControlName="visitId">
         <option selected value="">Wybierz czas</option>
-        <option value="{{visit.id}}" *ngFor="let visit of availableVisitsList">{{visit.fromTime}} - {{visit.toTime}}</option>
+        <option value="{{visit.id}}" *ngFor="let visit of availableVisitsList">{{visit.fromTime}}
+          - {{visit.toTime}}</option>
       </select>
     </div>
 
-    <div class="md-form checkbox">
-      PCR
-      <input mdbCheckbox type="checkbox" formControlName="pcr" (change)="updateVisitPrice()">
-    </div>
+    <div id="onlyForCovid" style="display: none">
+      <div class="md-form checkbox">
+        PCR
+        <input mdbCheckbox type="checkbox" formControlName="pcr" (change)="updateVisitPrice()">
+      </div>
 
-    <div class="md-form checkbox">
-      Antygen
-      <input mdbCheckbox type="checkbox" formControlName="antygen" (change)="updateVisitPrice()">
-    </div>
+      <div class="md-form checkbox">
+        Antygen
+        <input mdbCheckbox type="checkbox" formControlName="antygen" (change)="updateVisitPrice()">
+      </div>
 
-    <div class="md-form checkbox">
-      Sero
-      <input mdbCheckbox type="checkbox" formControlName="sero" (change)="updateVisitPrice()">
-    </div>
+      <div class="md-form checkbox">
+        Sero
+        <input mdbCheckbox type="checkbox" formControlName="sero" (change)="updateVisitPrice()">
+      </div>
 
-    <div class="md-form checkbox">
-      Czy szczepienie będzie refundowane?
-      <input mdbCheckbox type="checkbox" formControlName="refunded" (change)="updateVisitPrice()">
-    </div>
+      <div class="md-form checkbox">
+        Czy szczepienie będzie refundowane?
+        <input mdbCheckbox type="checkbox" formControlName="refunded" (change)="updateVisitPrice()">
+      </div>
 
-    <div class="md-form checkbox">
-      Cena: {{price}} zł
+      <div class="md-form checkbox">
+        Cena: {{price}} zł
+      </div>
     </div>
   </form>
 
