@@ -14,6 +14,7 @@
       <td>{{visit.toTime}}</td>
       <td>{{visit.status}}</td>
       <td>{{visit.description}}</td>
+      <td>{{visit.patientFirstName + " " + visit.patientLastName}}</td>
       <td>{{visit.price}}</td>
       <td>
         <button *ngIf="visit.status == 'TO_ACCEPT'" type="button" mdbBtn color="primary" mdbWavesEffect

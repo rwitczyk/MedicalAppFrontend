@@ -24,6 +24,9 @@ export class PatientService {
   getAllPatients(): Observable<PatientModel[]> {
     return this.http.get<PatientModel[]>(environment.backendUrl + '/patient/all');
   }
+  getAllDoctorPatients(doctorAccountId: string): Observable<PatientModel[]> {
+    return this.http.get<PatientModel[]>(environment.backendUrl + '/patient/all/' + doctorAccountId);
+  }
 
   createPatientAccount(user: CreatePatientModel): Observable<CreatePatientModel> {
     return this.http.post<CreatePatientModel>(environment.backendUrl + '/patient/add', user);

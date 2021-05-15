@@ -27,9 +27,16 @@ export class AllPatientsListComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.patientService.getAllPatients().subscribe(value => {
-      this.patientsList = value;
-    });
+    if (this.role === 'ROLE_DOCTOR') {
+      // @ts-ignore
+      this.patientService.getAllDoctorPatients(jwtDecode(sessionStorage.getItem('token')).user_id).subscribe(value => {
+        this.patientsList = value;
+      });
+    } else {
+      this.patientService.getAllPatients().subscribe(value => {
+        this.patientsList = value;
+      });
+    }
   }
 
   enableAccount(id: number): void {

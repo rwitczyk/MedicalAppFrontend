@@ -14,7 +14,7 @@ import {AcceptVisitModel} from '../../../models/AcceptVisitModel';
 export class AllDoctorVisitsComponent implements OnInit {
 
   allDoctorVisits: VisitsListModel[];
-  headElements = ['Data', 'Od', 'Do', 'Status wizyty', 'Opis', 'Cena', 'Anulowanie', 'Akceptacja'];
+  headElements = ['Data', 'Od', 'Do', 'Status wizyty', 'Opis', 'Pacjent', 'Cena', 'Anulowanie', 'Akceptacja'];
   selectedVisitId: number;
   acceptVisitModel = new AcceptVisitModel();
 
